@@ -8,5 +8,11 @@ let getComputerChoice = () => {
     else return "Scissors";
 }
 
-console.log(getComputerChoice());
+let getHumanChoice = () => {
+    const choice = prompt("Type Rock, Paper, or Scissors (case-sensitive)");
+    return choice;
+}
 
+
+console.log(getComputerChoice());
+getHumanChoice();
