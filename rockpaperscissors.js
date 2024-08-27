@@ -1,11 +1,8 @@
-// console.log("Hello World!");
-
 let humanScore = 0;
 let computerScore = 0;
 
 let getComputerChoice = () => {
     let num = Math.floor(Math.random() * 100 + 1);
-    // console.log(num)
     if (num >= 0 && num <= 33) return "rock";
     else if (num > 33 && num <= 66) return "paper";
     else return "scissors";
@@ -64,9 +61,5 @@ let playGame = () => {
     else console.log("After 5 rounds, the COMPUTER wins!");
 }
 
-// const humanSelection = getHumanChoice();
-// const computerSelection = getComputerChoice();
-
-// playRound(humanSelection, computerSelection);
 playGame();
 
