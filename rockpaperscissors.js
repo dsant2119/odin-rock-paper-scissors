@@ -18,7 +18,40 @@ let getHumanChoice = () => {
 
 let playRound = (humanChoice, computerChoice) => {
     const humanChoiceLower = humanChoice.toLowerCase();
-    console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
+    console.log(`Player's Choice: ${humanChoiceLower} Computer's Choice: ${computerChoice}`);
+
+    if (humanChoiceLower === computerChoice) console.log("Tie game! Score remains unchanged!");
+    else if (computerChoice === "rock") {
+        if (humanChoiceLower === "paper") {
+            console.log(`You win! ${humanChoiceLower} beats ${computerChoice}!`);
+            humanScore++;
+        }
+        else /*if (humanChoiceLower === "scissors")*/ {
+            console.log(`You lose! ${computerChoice} beats ${humanChoiceLower}!`);
+            computerScore++;
+        }
+    }
+    else if (computerChoice === "paper") {
+        if (humanChoiceLower === "scissors") {
+            console.log(`You win! ${humanChoiceLower} beats ${computerChoice}!`);
+            humanScore++;
+        }
+        else {
+            console.log(`You lose! ${computerChoice} beats ${humanChoiceLower}!`);
+            computerScore++;
+        }
+    }
+    else {
+        if (humanChoiceLower === "rock") {
+            console.log(`You win! ${humanChoiceLower} beats ${computerChoice}!`);
+            humanScore++;
+        }
+        else {
+            console.log(`You lose! ${computerChoice} beats ${humanChoiceLower}!`);
+            computerScore++;
+        }
+    }
+    // console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
 }
 
 const humanSelection = getHumanChoice();
