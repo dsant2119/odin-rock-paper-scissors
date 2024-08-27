@@ -18,7 +18,7 @@ let getHumanChoice = () => {
 
 let playRound = (humanChoice, computerChoice) => {
     const humanChoiceLower = humanChoice.toLowerCase();
-    console.log(`Player's Choice: ${humanChoiceLower} Computer's Choice: ${computerChoice}`);
+    console.log(`Player's Choice: ${humanChoiceLower.toUpperCase()} Computer's Choice: ${computerChoice.toUpperCase()}`);
 
     if (humanChoiceLower === computerChoice) console.log("Tie game! Score remains unchanged!");
     else if (computerChoice === "rock") {
@@ -54,8 +54,16 @@ let playRound = (humanChoice, computerChoice) => {
     // console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+let playGame = () => {
+    for (let i = 0; i < 5; i++){
+        playRound(getHumanChoice(), getComputerChoice());
+        console.log(`Current score is Human: ${humanScore} to Computer: ${computerScore}`);
+    }
+}
 
-playRound(humanSelection, computerSelection);
+// const humanSelection = getHumanChoice();
+// const computerSelection = getComputerChoice();
+
+// playRound(humanSelection, computerSelection);
+playGame();
 
