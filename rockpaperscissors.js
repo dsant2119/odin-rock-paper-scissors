@@ -1,5 +1,6 @@
 let humanScore = 0;
 let computerScore = 0;
+let numRounds = 0;
 
 let getComputerChoice = () => {
     let num = Math.floor(Math.random() * 100 + 1);
@@ -14,6 +15,7 @@ let getHumanChoice = () => {
 }
 
 let playRound = (humanChoice, computerChoice) => {
+    numRounds++;
     const humanChoiceLower = humanChoice.toLowerCase();
     console.log(`Player's Choice: ${humanChoiceLower.toUpperCase()} Computer's Choice: ${computerChoice.toUpperCase()}`);
 
@@ -52,12 +54,22 @@ let playRound = (humanChoice, computerChoice) => {
 
 let playGame = () => {
 
-    playRound(getHumanChoice(), getComputerChoice());
+    const buttons = document.querySelectorAll("button");
+    buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+            playRound(button.id, getComputerChoice());
+        });
+    });
+    
     console.log(`Current score is Human: ${humanScore} to Computer: ${computerScore}`);
 
-    if (humanScore === computerScore) console.log("After 5 rounds, the game is tied!");
-    else if (humanScore > computerScore) console.log("After 5 rounds, the HUMAN wins!");
-    else console.log("After 5 rounds, the COMPUTER wins!");
+    if (numRounds > 0) {
+        if (humanScore === computerScore) console.log(`After ${numRounds} rounds, the game is tied!`);
+        else if (humanScore > computerScore) console.log(`After ${numRounds}, the HUMAN wins!`);
+        else console.log(`After ${numRounds}, the COMPUTER wins!`);
+    }
+    else
+        console.log("NO ROUNDS HAVE BEEN PLAYED!")
 }
 
 playGame();
