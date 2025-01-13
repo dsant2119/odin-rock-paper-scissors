@@ -48,14 +48,13 @@ let playRound = (humanChoice, computerChoice) => {
             computerScore++;
         }
     }
-    // console.log(`You lose! ${computerChoice} beats ${humanChoice}!`);
 }
 
 let playGame = () => {
-    for (let i = 0; i < 5; i++){
-        playRound(getHumanChoice(), getComputerChoice());
-        console.log(`Current score is Human: ${humanScore} to Computer: ${computerScore}`);
-    }
+
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log(`Current score is Human: ${humanScore} to Computer: ${computerScore}`);
+
     if (humanScore === computerScore) console.log("After 5 rounds, the game is tied!");
     else if (humanScore > computerScore) console.log("After 5 rounds, the HUMAN wins!");
     else console.log("After 5 rounds, the COMPUTER wins!");
