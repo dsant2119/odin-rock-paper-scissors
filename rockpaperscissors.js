@@ -56,7 +56,8 @@ let playRound = (humanChoice, computerChoice) => {
     const scorecard = document.querySelector("#scorecard");
     const content = document.createElement("h3");
     content.classList.add("score");
-    content.textContent = `Current score is Human: ${humanScore} to Computer: ${computerScore}`;
+    content.textContent = `Computer chose ${computerChoice} against your ${humanChoice}!
+    Current score is Human: ${humanScore} to Computer: ${computerScore}`;
     scorecard.appendChild(content);
 }
 
