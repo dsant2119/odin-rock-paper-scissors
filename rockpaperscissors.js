@@ -49,13 +49,13 @@ let playRound = (humanChoice, computerChoice) => {
             child = body.lastElementChild; //update child
         }
         const content = document.createElement("h1");
-        if (gameWin) content.textContent = `YOU WIN!! Page will refresh in 5 seconds`;
-        else content.textContent = `YOU LOSE!! Page will refresh in 5 seconds.`;
+        if (gameWin) content.textContent = `YOU WIN!! Page will refresh in 3 seconds`;
+        else content.textContent = `YOU LOSE!! Page will refresh in 3 seconds.`;
         body.appendChild(content);
 
         setTimeout(function () {
             location.reload();
-        }, 5000); // Time in milliseconds
+        }, 3000); // Time in milliseconds
     }
     else {
 
@@ -85,12 +85,6 @@ let playGame = () => {
             playRound(button.id, getComputerChoice());
         });
     });
-
-    if (numRounds > 0 && numRounds < 5) {
-        if (humanScore === computerScore) console.log(`After ${numRounds} rounds, the game is tied!`);
-        else if (humanScore > computerScore) console.log(`After ${numRounds}, the HUMAN wins!`);
-        else console.log(`After ${numRounds}, the COMPUTER wins!`);
-    }
 }
 
 playGame();
