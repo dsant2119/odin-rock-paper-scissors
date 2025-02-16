@@ -1,4 +1,32 @@
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     background-color: powderblue;
     text-align: center;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 2px solid black;
+    padding: 1em;
+    margin-left: 30em;
+    margin-right: 30em;
+}
+
+#round {
+    margin: auto;
+}
+
+button {
+    background-color: darkgoldenrod;
+    border-radius: 3px;
+    padding: 10px;
+    margin-right: 1em;
+}
+
+button:hover {
+    background-color: white;
 }
