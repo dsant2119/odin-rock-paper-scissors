@@ -22,28 +22,16 @@ let playRound = (humanChoice, computerChoice) => {
     
     if (humanChoiceLower === computerChoice) tie = true;
     else if (computerChoice === "rock") {
-        if (humanChoiceLower === "paper") {
-            humanScore++;
-        }
-        else /*if (humanChoiceLower === "scissors")*/ {
-            computerScore++;
-        }
+        if (humanChoiceLower === "paper") humanScore++;
+        else computerScore++;
     }
     else if (computerChoice === "paper") {
-        if (humanChoiceLower === "scissors") {
-            humanScore++;
-        }
-        else {
-            computerScore++;
-        }
+        if (humanChoiceLower === "scissors") humanScore++;
+        else computerScore++;
     }
     else {
-        if (humanChoiceLower === "rock") {
-            humanScore++;
-        }
-        else {
-            computerScore++;
-        }
+        if (humanChoiceLower === "rock") humanScore++;
+        else computerScore++;
     }
 
     const scorecard = document.querySelector("#scorecard");
@@ -67,13 +55,15 @@ let playGame = () => {
         });
     });
 
-    if (numRounds > 0) {
+    if (numRounds > 0 && numRounds < 5) {
         if (humanScore === computerScore) console.log(`After ${numRounds} rounds, the game is tied!`);
         else if (humanScore > computerScore) console.log(`After ${numRounds}, the HUMAN wins!`);
         else console.log(`After ${numRounds}, the COMPUTER wins!`);
     }
-    else
-        console.log("NO ROUNDS HAVE BEEN PLAYED!")
+    else if (numRounds == 5) {
+        
+    }
+        
 }
 
 playGame();
