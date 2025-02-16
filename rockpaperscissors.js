@@ -19,7 +19,7 @@ let playRound = (humanChoice, computerChoice) => {
     const rounds = document.querySelector("#round");
     let child = rounds.firstElementChild;
     child.textContent = `Rounds Played: ${numRounds}`;
-    
+
     const humanChoiceLower = humanChoice.toLowerCase();
     let tie = false;
     let gameWin = false;
@@ -49,9 +49,13 @@ let playRound = (humanChoice, computerChoice) => {
             child = body.lastElementChild; //update child
         }
         const content = document.createElement("h1");
-        if (gameWin) content.textContent = `YOU WIN!! Refresh to play again!`;
-        else content.textContent = `YOU LOSE!! Refresh to play again!`;
+        if (gameWin) content.textContent = `YOU WIN!! Page will refresh in 5 seconds`;
+        else content.textContent = `YOU LOSE!! Page will refresh in 5 seconds.`;
         body.appendChild(content);
+
+        setTimeout(function () {
+            location.reload();
+        }, 5000); // Time in milliseconds
     }
     else {
 
