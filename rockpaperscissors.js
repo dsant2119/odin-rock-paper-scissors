@@ -18,10 +18,9 @@ let playRound = (humanChoice, computerChoice) => {
     numRounds++;
     const humanChoiceLower = humanChoice.toLowerCase();
     console.log(`Player's Choice: ${humanChoiceLower.toUpperCase()} Computer's Choice: ${computerChoice.toUpperCase()}`);
-
+    let tie = false;
     
-
-    if (humanChoiceLower === computerChoice) console.log("Tie game! Score remains unchanged!");
+    if (humanChoiceLower === computerChoice) tie = true;
     else if (computerChoice === "rock") {
         if (humanChoiceLower === "paper") {
             humanScore++;
@@ -50,8 +49,12 @@ let playRound = (humanChoice, computerChoice) => {
     const scorecard = document.querySelector("#scorecard");
     const content = document.createElement("h3");
     content.classList.add("score");
-    content.textContent = `Computer chose ${computerChoice} against your ${humanChoice}!
-    Current score is Human: ${humanScore} to Computer: ${computerScore}`;
+    if (tie) content.textContent = 
+        `Computer chose ${computerChoice} against your ${humanChoice}! It's a TIE!
+        Current score is Human: ${humanScore} to Computer: ${computerScore}`;
+    else content.textContent = 
+        `Computer chose ${computerChoice} against your ${humanChoice}!
+        Current score is Human: ${humanScore} to Computer: ${computerScore}`;
     scorecard.appendChild(content);
 }
 
