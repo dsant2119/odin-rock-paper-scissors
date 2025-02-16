@@ -16,10 +16,14 @@ let getHumanChoice = () => {
 
 let playRound = (humanChoice, computerChoice) => {
     numRounds++;
-    const humanChoiceLower = humanChoice.toLowerCase();
-    console.log(`Player's Choice: ${humanChoiceLower.toUpperCase()} Computer's Choice: ${computerChoice.toUpperCase()}`);
-    let tie = false;
+    const rounds = document.querySelector("#round");
+    let child = rounds.firstElementChild;
+    child.textContent = `Rounds Played: ${numRounds}`;
     
+    const humanChoiceLower = humanChoice.toLowerCase();
+    let tie = false;
+    let gameWin = false;
+
     if (humanChoiceLower === computerChoice) tie = true;
     else if (computerChoice === "rock") {
         if (humanChoiceLower === "paper") humanScore++;
@@ -34,19 +38,42 @@ let playRound = (humanChoice, computerChoice) => {
         else computerScore++;
     }
 
-    const scorecard = document.querySelector("#scorecard");
-    const content = document.createElement("h3");
-    content.classList.add("score");
-    if (tie) content.textContent = 
-        `Computer chose ${computerChoice} against your ${humanChoice}! It's a TIE!
+    if (numRounds == 5) {
+        if (humanScore > computerScore) gameWin = true;
+        else gameWin = false;
+
+        const body = document.querySelector("body");
+        let child = body.lastElementChild; //get last child in list
+        while (child) {
+            body.removeChild(child);   //remove currently selected child
+            child = body.lastElementChild; //update child
+        }
+        const content = document.createElement("h1");
+        if (gameWin) content.textContent = `YOU WIN!! Refresh to play again!`;
+        else content.textContent = `YOU LOSE!! Refresh to play again!`;
+        body.appendChild(content);
+    }
+    else {
+
+        const scorecard = document.querySelector("#scorecard");
+        const content = document.createElement("h3");
+        content.classList.add("score");
+        if (tie) content.textContent =
+            `Computer chose ${computerChoice} against your ${humanChoice}! It's a TIE!
         Current score is Human: ${humanScore} to Computer: ${computerScore}`;
-    else content.textContent = 
-        `Computer chose ${computerChoice} against your ${humanChoice}!
+        else content.textContent =
+            `Computer chose ${computerChoice} against your ${humanChoice}!
         Current score is Human: ${humanScore} to Computer: ${computerScore}`;
-    scorecard.appendChild(content);
+        scorecard.appendChild(content);
+    }
 }
 
 let playGame = () => {
+    const roundCounter = document.querySelector("#round");
+    const roundContent = document.createElement("h3");
+    roundCounter.classList.add("roundCtr");
+    roundContent.textContent = `Rounds Played: ${numRounds}`;
+    roundCounter.appendChild(roundContent);
 
     const buttons = document.querySelectorAll("button");
     buttons.forEach((button) => {
@@ -60,10 +87,6 @@ let playGame = () => {
         else if (humanScore > computerScore) console.log(`After ${numRounds}, the HUMAN wins!`);
         else console.log(`After ${numRounds}, the COMPUTER wins!`);
     }
-    else if (numRounds == 5) {
-        
-    }
-        
 }
 
 playGame();
