@@ -55,6 +55,7 @@ let playRound = (humanChoice, computerChoice) => {
 
         const gameRecord = document.createElement("div");
         gameRecord.classList.add("record");
+        gameRecord.textContent = "FILLER CONTENT";
         body.appendChild(gameRecord);
 
         // setTimeout(function () {

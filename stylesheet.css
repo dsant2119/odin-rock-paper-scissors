@@ -21,10 +21,10 @@ body {
 }
 
 .record {
-    border-radius: 3px;
-    background-color: antiquewhite;
+    border: 2px solid black;    
     padding: 1em;
-    margin-top: auto;
+    margin-left: 30em;
+    margin-right: 30em;
 }
 
 button {
