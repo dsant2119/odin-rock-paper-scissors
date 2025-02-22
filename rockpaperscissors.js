@@ -53,9 +53,13 @@ let playRound = (humanChoice, computerChoice) => {
         else content.textContent = `YOU LOSE!! Page will refresh in 3 seconds.`;
         body.appendChild(content);
 
-        setTimeout(function () {
-            location.reload();
-        }, 3000); // Time in milliseconds
+        const gameRecord = document.createElement("div");
+        gameRecord.classList.add("record");
+        body.appendChild(gameRecord);
+
+        // setTimeout(function () {
+        //     location.reload();
+        // }, 3000); // Time in milliseconds
     }
     else {
 

@@ -20,6 +20,13 @@ body {
     margin: auto;
 }
 
+.record {
+    border-radius: 3px;
+    background-color: antiquewhite;
+    padding: 1em;
+    margin-top: auto;
+}
+
 button {
     background-color: darkgoldenrod;
     border-radius: 3px;
