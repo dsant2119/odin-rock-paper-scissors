@@ -9,11 +9,6 @@ let getComputerChoice = () => {
     else return "scissors";
 }
 
-let getHumanChoice = () => {
-    const choice = prompt("Type Rock, Paper, or Scissors (case-sensitive)");
-    return choice;
-}
-
 let playRound = (humanChoice, computerChoice) => {
     numRounds++;
     const rounds = document.querySelector("#round");
