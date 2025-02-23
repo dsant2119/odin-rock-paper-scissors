@@ -63,6 +63,7 @@ let playRound = (humanChoice, computerChoice) => {
             child = body.lastElementChild; //update child
         }
         const content = document.createElement("h1");
+        content.classList.add("game-end-header");
         if (gameWin) content.textContent = `YOU WON IN ${numRounds} ROUNDS! Page will refresh in a few seconds`;
         else content.textContent = `YOU LOST IN ${numRounds} ROUNDS! Page will refresh in a few seconds.`;
         body.appendChild(content);
