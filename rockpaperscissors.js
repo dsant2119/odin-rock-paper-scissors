@@ -51,9 +51,14 @@ let playRound = (humanChoice, computerChoice) => {
         else content.textContent = `YOU LOSE!! Page will refresh in 3 seconds.`;
         body.appendChild(content);
 
+        const recordTitle = document.createElement("div");
+        recordTitle.classList.add("record");
+        recordTitle.textContent = "RECORD OF ROUNDS PLAYED: ";
+        body.appendChild(recordTitle);
+
         const gameRecord = document.createElement("div");
         gameRecord.classList.add("record");
-        gameRecord.textContent = roundArray.join("\n");
+        gameRecord.textContent = roundArray.join("\n\n");
         body.appendChild(gameRecord);
 
         // setTimeout(function () {
