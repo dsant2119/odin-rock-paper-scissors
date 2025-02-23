@@ -56,26 +56,26 @@ let playRound = (humanChoice, computerChoice) => {
         else if (humanScore === computerScore) gameTie = true;
         else gameWin = false;
 
-        const body = document.querySelector("body");
-        let child = body.lastElementChild; //get last child in list
+        const contentContainer = document.querySelector(".content");
+        let child = contentContainer.lastElementChild; //get last child in list
         while (child) {
-            body.removeChild(child);   //remove currently selected child
-            child = body.lastElementChild; //update child
+            contentContainer.removeChild(child);   //remove currently selected child
+            child = contentContainer.lastElementChild; //update child
         }
         const content = document.createElement("h1");
         content.classList.add("game-end-title");
         if (gameWin) content.textContent = `YOU WON IN ${numRounds} ROUNDS! Page will refresh in a few seconds`;
         else content.textContent = `YOU LOST IN ${numRounds} ROUNDS! Page will refresh in a few seconds.`;
-        body.appendChild(content);
+        contentContainer.appendChild(content);
 
         const recordTitle = document.createElement("div");
         recordTitle.classList.add("record-container", "record-title");
         recordTitle.textContent = "RECORD OF ROUNDS PLAYED: ";
-        body.appendChild(recordTitle);
+        contentContainer.appendChild(recordTitle);
 
         const gameRecordContainer = document.createElement("div");
         gameRecordContainer.classList.add("record-container");
-        body.appendChild(gameRecordContainer);
+        contentContainer.appendChild(gameRecordContainer);
 
         roundArray.forEach(element => {
             const recordEntry = document.createElement("p");
@@ -84,9 +84,9 @@ let playRound = (humanChoice, computerChoice) => {
             gameRecordContainer.appendChild(recordEntry);
         });
 
-        setTimeout(function () {
-            location.reload();
-        }, 8000); // Time in milliseconds
+        // setTimeout(function () {
+        //     location.reload();
+        // }, 8000); // Time in milliseconds
     }
 }
 

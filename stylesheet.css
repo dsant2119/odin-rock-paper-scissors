@@ -1,11 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    display: flex;
+    height: 100%;
     flex-direction: column;
-    justify-content: center;
     background-color: powderblue;
-    min-width: fit-content;
+}
+
+.content {
+    flex: 1; /* Pushes the footer down */
+    /* white-space: pre-line; */
     text-align: center;
-    white-space: pre-line;
+    min-width: fit-content;
+}
+
+.instructions {
+    text-align: center;
+    min-width: fit-content;
+    margin-bottom: .5em;
+    padding: .5em;
+    background-color: #333;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
 }
 
 #button-container {
@@ -20,7 +47,7 @@ body {
 }
 
 #round {
-    margin-bottom: 0;
+    
 }
 
 #scorecard {
@@ -29,6 +56,7 @@ body {
 
 .game-end-header {
     min-width: fit-content;
+    padding: 1em;
 }
 
 .record-container {
