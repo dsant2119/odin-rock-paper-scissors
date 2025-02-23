@@ -4,6 +4,7 @@ body {
     justify-content: center;
     background-color: powderblue;
     text-align: center;
+    white-space: pre-line;
 }
 
 #buttons {

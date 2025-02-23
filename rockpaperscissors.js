@@ -1,6 +1,7 @@
 let humanScore = 0;
 let computerScore = 0;
 let numRounds = 0;
+let roundArray = [];
 
 let getComputerChoice = () => {
     let num = Math.floor(Math.random() * 100 + 1);
@@ -16,10 +17,10 @@ let playRound = (humanChoice, computerChoice) => {
     child.textContent = `Rounds Played: ${numRounds}`;
 
     const humanChoiceLower = humanChoice.toLowerCase();
-    let tie = false;
+    let gameTie = false;
     let gameWin = false;
 
-    if (humanChoiceLower === computerChoice) tie = true;
+    if (humanChoiceLower === computerChoice) gameTie = true;
     else if (computerChoice === "rock") {
         if (humanChoiceLower === "paper") humanScore++;
         else computerScore++;
@@ -35,6 +36,7 @@ let playRound = (humanChoice, computerChoice) => {
 
     if (numRounds == 5) {
         if (humanScore > computerScore) gameWin = true;
+        else if (humanScore === computerScore) gameTie = true;
         else gameWin = false;
 
         const body = document.querySelector("body");
@@ -45,12 +47,13 @@ let playRound = (humanChoice, computerChoice) => {
         }
         const content = document.createElement("h1");
         if (gameWin) content.textContent = `YOU WIN!! Page will refresh in 3 seconds`;
+        else if (gameTie) content.textContent = "TIE GAME!! Page will refresh in 3 seconds";
         else content.textContent = `YOU LOSE!! Page will refresh in 3 seconds.`;
         body.appendChild(content);
 
         const gameRecord = document.createElement("div");
         gameRecord.classList.add("record");
-        gameRecord.textContent = "FILLER CONTENT";
+        gameRecord.textContent = roundArray.join("\n");
         body.appendChild(gameRecord);
 
         // setTimeout(function () {
@@ -62,13 +65,14 @@ let playRound = (humanChoice, computerChoice) => {
         const scorecard = document.querySelector("#scorecard");
         const content = document.createElement("h3");
         content.classList.add("score");
-        if (tie) content.textContent =
+        if (gameTie) content.textContent =
             `Computer chose ${computerChoice} against your ${humanChoice}! It's a TIE!
         Current score is Human: ${humanScore} to Computer: ${computerScore}`;
         else content.textContent =
             `Computer chose ${computerChoice} against your ${humanChoice}!
         Current score is Human: ${humanScore} to Computer: ${computerScore}`;
         scorecard.appendChild(content);
+        roundArray.push(content.textContent);
     }
 }
 
