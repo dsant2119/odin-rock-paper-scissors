@@ -7,11 +7,12 @@ body {
     white-space: pre-line;
 }
 
-#buttons {
+#button-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     border: 2px solid black;
+    min-width: fit-content;
     padding: 1em;
     margin-left: 30em;
     margin-right: 30em;
@@ -19,6 +20,10 @@ body {
 
 #round {
     margin: auto;
+}
+
+.game-end-header {
+    min-width: fit-content;
 }
 
 .record {
