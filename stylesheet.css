@@ -3,6 +3,7 @@ body {
     flex-direction: column;
     justify-content: center;
     background-color: powderblue;
+    min-width: fit-content;
     text-align: center;
     white-space: pre-line;
 }
@@ -19,7 +20,11 @@ body {
 }
 
 #round {
-    margin: auto;
+    margin-bottom: 0;
+}
+
+#scorecard {
+    margin-top: 0;
 }
 
 .game-end-header {
@@ -44,6 +49,7 @@ button {
     border-radius: 3px;
     padding: 10px;
     margin-right: 1em;
+    font-weight: bold;
 }
 
 button:hover {
