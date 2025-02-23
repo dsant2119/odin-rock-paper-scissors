@@ -52,7 +52,7 @@ let playRound = (humanChoice, computerChoice) => {
         body.appendChild(content);
 
         const recordTitle = document.createElement("div");
-        recordTitle.classList.add("record");
+        recordTitle.classList.add("record", "record-title");
         recordTitle.textContent = "RECORD OF ROUNDS PLAYED: ";
         body.appendChild(recordTitle);
 

@@ -28,6 +28,10 @@ body {
     margin-right: 30em;
 }
 
+.record-title {
+    font-weight: bolder;
+}
+
 button {
     background-color: darkgoldenrod;
     border-radius: 3px;
