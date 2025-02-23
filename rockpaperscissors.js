@@ -16,6 +16,10 @@ let playRound = (humanChoice, computerChoice) => {
     let child = rounds.firstElementChild;
     child.textContent = `Rounds Played: ${numRounds}`;
 
+    const scorecard = document.querySelector("#scorecard");
+    const content = document.createElement("h3");
+    content.classList.add("score");
+
     const humanChoiceLower = humanChoice.toLowerCase();
     let gameTie = false;
     let gameWin = false;
@@ -33,8 +37,21 @@ let playRound = (humanChoice, computerChoice) => {
         if (humanChoiceLower === "rock") humanScore++;
         else computerScore++;
     }
+    if (gameTie) {
+        content.textContent =
+            `Computer chose ${computerChoice} against your ${humanChoice}! It's a TIE!
+    Current score is Human: ${humanScore} to Computer: ${computerScore}`;
+    }
+    else {
+        content.textContent =
+            `Computer chose ${computerChoice} against your ${humanChoice}!
+        Current score is Human: ${humanScore} to Computer: ${computerScore}`;
+    }
+    scorecard.appendChild(content);
 
-    if (numRounds == 5) {
+    roundArray.push(content.textContent);
+
+    if (humanScore === 3 || computerScore === 3) {
         if (humanScore > computerScore) gameWin = true;
         else if (humanScore === computerScore) gameTie = true;
         else gameWin = false;
@@ -46,9 +63,8 @@ let playRound = (humanChoice, computerChoice) => {
             child = body.lastElementChild; //update child
         }
         const content = document.createElement("h1");
-        if (gameWin) content.textContent = `YOU WIN!! Page will refresh in 3 seconds`;
-        else if (gameTie) content.textContent = "TIE GAME!! Page will refresh in 3 seconds";
-        else content.textContent = `YOU LOSE!! Page will refresh in 3 seconds.`;
+        if (gameWin) content.textContent = `YOU WON IN ${numRounds} ROUNDS! Page will refresh in a few seconds`;
+        else content.textContent = `YOU LOST IN ${numRounds} ROUNDS! Page will refresh in a few seconds.`;
         body.appendChild(content);
 
         const recordTitle = document.createElement("div");
@@ -61,23 +77,9 @@ let playRound = (humanChoice, computerChoice) => {
         gameRecord.textContent = roundArray.join("\n\n");
         body.appendChild(gameRecord);
 
-        // setTimeout(function () {
-        //     location.reload();
-        // }, 3000); // Time in milliseconds
-    }
-    else {
-
-        const scorecard = document.querySelector("#scorecard");
-        const content = document.createElement("h3");
-        content.classList.add("score");
-        if (gameTie) content.textContent =
-            `Computer chose ${computerChoice} against your ${humanChoice}! It's a TIE!
-        Current score is Human: ${humanScore} to Computer: ${computerScore}`;
-        else content.textContent =
-            `Computer chose ${computerChoice} against your ${humanChoice}!
-        Current score is Human: ${humanScore} to Computer: ${computerScore}`;
-        scorecard.appendChild(content);
-        roundArray.push(content.textContent);
+        setTimeout(function () {
+            location.reload();
+        }, 8000); // Time in milliseconds
     }
 }
 
