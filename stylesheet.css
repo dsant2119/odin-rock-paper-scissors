@@ -31,7 +31,7 @@ body {
     min-width: fit-content;
 }
 
-.record {
+.record-container {
     border: 2px solid black;    
     padding: 1em;
     margin-left: 30em;
@@ -40,8 +40,16 @@ body {
     min-width: fit-content;
 }
 
+.record-entry {
+    font-weight: bolder;
+    border: 2px dotted black;
+    margin : .5em;
+    padding: .5em;
+}
+
 .record-title {
     font-weight: bolder;
+    margin-bottom: .5em;
 }
 
 button {

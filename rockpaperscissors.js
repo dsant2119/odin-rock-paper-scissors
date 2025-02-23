@@ -63,20 +63,26 @@ let playRound = (humanChoice, computerChoice) => {
             child = body.lastElementChild; //update child
         }
         const content = document.createElement("h1");
-        content.classList.add("game-end-header");
+        content.classList.add("game-end-title");
         if (gameWin) content.textContent = `YOU WON IN ${numRounds} ROUNDS! Page will refresh in a few seconds`;
         else content.textContent = `YOU LOST IN ${numRounds} ROUNDS! Page will refresh in a few seconds.`;
         body.appendChild(content);
 
         const recordTitle = document.createElement("div");
-        recordTitle.classList.add("record", "record-title");
+        recordTitle.classList.add("record-container", "record-title");
         recordTitle.textContent = "RECORD OF ROUNDS PLAYED: ";
         body.appendChild(recordTitle);
 
-        const gameRecord = document.createElement("div");
-        gameRecord.classList.add("record");
-        gameRecord.textContent = roundArray.join("\n\n");
-        body.appendChild(gameRecord);
+        const gameRecordContainer = document.createElement("div");
+        gameRecordContainer.classList.add("record-container");
+        body.appendChild(gameRecordContainer);
+
+        roundArray.forEach(element => {
+            const recordEntry = document.createElement("p");
+            recordEntry.classList.add("record-entry");
+            recordEntry.textContent = element;
+            gameRecordContainer.appendChild(recordEntry);
+        });
 
         setTimeout(function () {
             location.reload();
