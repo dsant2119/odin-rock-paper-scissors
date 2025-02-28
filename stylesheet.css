@@ -12,8 +12,8 @@ body {
 }
 
 .content {
-    flex: 1; /* Pushes the footer down */
-    /* white-space: pre-line; */
+    flex: 1;
+    /* Pushes the footer down */
     text-align: center;
     min-width: fit-content;
 }
@@ -47,10 +47,6 @@ body {
     margin-right: 30em;
 }
 
-#round {
-    
-}
-
 #scorecard {
     margin-top: 0;
 }
@@ -61,7 +57,7 @@ body {
 }
 
 .record-container {
-    border: 2px solid black;    
+    border: 2px solid black;
     padding: 1em;
     margin-left: 30em;
     margin-right: 30em;
@@ -70,9 +66,10 @@ body {
 }
 
 .record-entry {
+    white-space: pre-line;
     font-weight: bolder;
     border: 2px dotted black;
-    margin : .5em;
+    margin: .5em;
     padding: .5em;
 }
 

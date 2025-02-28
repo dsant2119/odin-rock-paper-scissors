@@ -62,11 +62,12 @@ let playRound = (humanChoice, computerChoice) => {
             contentContainer.removeChild(child);   //remove currently selected child
             child = contentContainer.lastElementChild; //update child
         }
-        const content = document.createElement("h1");
-        content.classList.add("game-end-title");
-        if (gameWin) content.textContent = `YOU WON IN ${numRounds} ROUNDS! Page will refresh in a few seconds`;
-        else content.textContent = `YOU LOST IN ${numRounds} ROUNDS! Page will refresh in a few seconds.`;
-        contentContainer.appendChild(content);
+
+        const newHeader = document.createElement("header");
+        newHeader.classList.add("instructions");
+        if (gameWin) newHeader.textContent = `YOU WON IN ${numRounds} ROUNDS! Page will refresh in a few seconds`;
+        else newHeader.textContent = `YOU LOST IN ${numRounds} ROUNDS! Page will refresh in a few seconds.`;
+        contentContainer.appendChild(newHeader);
 
         const recordTitle = document.createElement("div");
         recordTitle.classList.add("record-container", "record-title");
@@ -77,16 +78,18 @@ let playRound = (humanChoice, computerChoice) => {
         gameRecordContainer.classList.add("record-container");
         contentContainer.appendChild(gameRecordContainer);
 
+        let counter = 0;
         roundArray.forEach(element => {
+            counter++;
             const recordEntry = document.createElement("p");
             recordEntry.classList.add("record-entry");
-            recordEntry.textContent = element;
+            recordEntry.textContent = `Round ${counter}: \n ${element}`;
             gameRecordContainer.appendChild(recordEntry);
         });
 
-        // setTimeout(function () {
-        //     location.reload();
-        // }, 8000); // Time in milliseconds
+        setTimeout(function () {
+            location.reload();
+        }, 8000); // Time in milliseconds
     }
 }
 
