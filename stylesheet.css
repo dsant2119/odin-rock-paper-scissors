@@ -51,9 +51,9 @@ body {
     margin-top: 0;
 }
 
-.game-end-header {
-    min-width: fit-content;
-    padding: 1em;
+#round {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 
 .record-container {

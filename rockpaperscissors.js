@@ -17,8 +17,8 @@ let playRound = (humanChoice, computerChoice) => {
     child.textContent = `Rounds Played: ${numRounds}`;
 
     const scorecard = document.querySelector("#scorecard");
-    const content = document.createElement("h3");
-    content.classList.add("score");
+    const roundResult = document.createElement("div");
+    roundResult.classList.add("record-entry");
 
     const humanChoiceLower = humanChoice.toLowerCase();
     let gameTie = false;
@@ -38,18 +38,18 @@ let playRound = (humanChoice, computerChoice) => {
         else computerScore++;
     }
     if (gameTie) {
-        content.textContent =
+        roundResult.textContent =
             `Computer chose ${computerChoice} against your ${humanChoice}! It's a TIE!
     Current score is Human: ${humanScore} to Computer: ${computerScore}`;
     }
     else {
-        content.textContent =
+        roundResult.textContent =
             `Computer chose ${computerChoice} against your ${humanChoice}!
         Current score is Human: ${humanScore} to Computer: ${computerScore}`;
     }
-    scorecard.appendChild(content);
+    scorecard.appendChild(roundResult);
 
-    roundArray.push(content.textContent);
+    roundArray.push(roundResult.textContent);
 
     if (humanScore === 3 || computerScore === 3) {
         if (humanScore > computerScore) gameWin = true;
